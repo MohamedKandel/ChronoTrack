@@ -81,7 +81,7 @@ public class AuthService
         {
             return ResponseStatus.NotFound;
         }
-        
+
 
         await SendOtpAsync(acc);
 
@@ -112,11 +112,11 @@ public class AuthService
         var account = await _context.Accounts
             .FirstOrDefaultAsync(a => a.Email == dto.email);
 
-        if(account == null)
+        if (account == null)
         {
             return ResponseStatus.NotFound;
         }
-        if(!account.IsVerified)
+        if (!account.IsVerified)
         {
             return ResponseStatus.NotVerified;
         }
@@ -162,13 +162,14 @@ public class AuthService
         {
             await SendOtpAsync(accountObject);
 
-        } catch(Exception ex)
+        }
+        catch (Exception ex)
         {
             Console.WriteLine(ex.Message);
 
             return ResponseStatus.OTPNotSent;
         }
-        
+
         return ResponseStatus.Success;
     }
 
@@ -207,7 +208,7 @@ public class AuthService
             };
 
         var token = _jwtService.GenerateToken(account);
-        
+
         return new LoginResult
         {
             status = ResponseStatus.Success,

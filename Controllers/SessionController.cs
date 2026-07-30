@@ -19,7 +19,7 @@ public class SessionController : ControllerBase
     {
         var accountIdClaim = User.FindFirstValue(ClaimTypes.NameIdentifier)!;
         var result = await _service.AddSession(dto,accountIdClaim);
-        switch(result)
+        switch(result.status)
         {
             case ResponseStatus.NotFound:
                 return NotFound(new GeneralResponse<String>
@@ -27,11 +27,18 @@ public class SessionController : ControllerBase
                     code = 404,
                     message = "Account not found"
                 });
+            case ResponseStatus.Invalid:
+                return StatusCode(403,new GeneralResponse<String>
+                {
+                    code = 403,
+                    message = "End time cannot be before start time"
+                });
             case ResponseStatus.Success:
                 return StatusCode(201, new GeneralResponse<String>
                 {
                     code = 201,
-                    message = "Session added successfully"
+                    message = "Session added successfully",
+                    data = result.sessionID
                 });
             default:
                 return BadRequest();

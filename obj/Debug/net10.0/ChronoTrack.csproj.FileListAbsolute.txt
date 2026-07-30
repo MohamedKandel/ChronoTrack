@@ -168,3 +168,10 @@ D:\mohamed\.NET\APIs\ChronoTrack\bin\Debug\net10.0\publish\publish\appsettings.j
 D:\mohamed\.NET\APIs\ChronoTrack\bin\Debug\net10.0\publish\publish\ChronoTrack.deps.json
 D:\mohamed\.NET\APIs\ChronoTrack\bin\Debug\net10.0\publish\publish\ChronoTrack.runtimeconfig.json
 D:\mohamed\.NET\APIs\ChronoTrack\bin\Debug\net10.0\publish\publish\ChronoTrack.staticwebassets.endpoints.json
+D:\mohamed\.NET\APIs\ChronoTrack\bin\Debug\net10.0\publish\publish\publish\web.config
+D:\mohamed\.NET\APIs\ChronoTrack\bin\Debug\net10.0\publish\publish\publish\appsettings.Development.json
+D:\mohamed\.NET\APIs\ChronoTrack\bin\Debug\net10.0\publish\publish\publish\appsettings.json
+D:\mohamed\.NET\APIs\ChronoTrack\bin\Debug\net10.0\publish\publish\publish\ChronoTrack.deps.json
+D:\mohamed\.NET\APIs\ChronoTrack\bin\Debug\net10.0\publish\publish\publish\ChronoTrack.runtimeconfig.json
+D:\mohamed\.NET\APIs\ChronoTrack\bin\Debug\net10.0\publish\publish\publish\ChronoTrack.staticwebassets.endpoints.json
+D:\mohamed\.NET\APIs\ChronoTrack\obj\Debug\net10.0\ChronoTrack.sourcelink.json

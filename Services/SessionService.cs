@@ -20,7 +20,7 @@ public class SessionService
         return sessionID;
     }
 
-    public async Task<ResponseStatus> AddSession(AddSessionDTO dto, string accountID)
+    public async Task<AddSessionResponse> AddSession(AddSessionDTO dto, string accountID)
     {
         var sessionID = await GenerateUniqueSessionId();
 
@@ -29,7 +29,18 @@ public class SessionService
 
         if (account == null)
         {
-            return ResponseStatus.NotFound;
+            return new AddSessionResponse
+            {
+                status = ResponseStatus.NotFound
+            };
+        }
+        if(dto.EndTime < dto.StartTime)
+        {
+            return new AddSessionResponse
+            {
+                status = ResponseStatus.Invalid
+            };
+            //return ResponseStatus.Invalid;
         }
 
         var sessionObj = new Sessions
@@ -46,7 +57,11 @@ public class SessionService
 
         await _context.SaveChangesAsync();
 
-        return ResponseStatus.Success;
+        return new AddSessionResponse
+        {
+            status = ResponseStatus.Success,
+            sessionID = sessionID
+        }; //ResponseStatus.Success;
     }
 
     public async Task<ResponseStatus> EndSession(string sessionID)
